@@ -35,4 +35,4 @@ This is an example of what the log file will show:<br>
 * Default (hardcoded) log file location is `C:\Windows\Temp\whp_hook_log.txt` This can totally be disabled by commenting out the `DEBUG` define.
 * It's important to note that this doesn't include/hook the WHP functions from the WinHvEmulation.dll, though an identical method could be used to hook its functions as well.
 * Currently just works with QEMU's usage of the WHP, but should work with VMware products and others that utilize the WHP.
-* Just an experiment/PoC/toy 🧐
+* Just an experiment/PoC/toy. There are so many ways to improve this 🧐
