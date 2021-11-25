@@ -96,6 +96,7 @@ void main()
     HANDLE hClientPipe;
     HANDLE hListenThread;
     COMMS_PACKET commsPacket;
+    WHPHOOK_ERROR whpErr;
     VM VM;
     std::vector<std::string>arguments;
 
@@ -105,8 +106,8 @@ void main()
     while (TRUE)
     {
 
-        VM.Initialize(&hClientPipe);
-        if (hClientPipe != INVALID_HANDLE_VALUE)
+        whpErr = VM.Initialize(&hClientPipe);
+        if ((hClientPipe != INVALID_HANDLE_VALUE) && (whpErr == ErrorSuccess))
         {
             hListenThread = CreateThread(NULL, 0, (LPTHREAD_START_ROUTINE)ClientReadRoutine, hClientPipe, 0, 0);
             printf("[i] Connected. Handle is: %I64X\n", hClientPipe);
@@ -114,6 +115,7 @@ void main()
         }
         else
         {
+            printf("[!] WHPHOOK_ERROR: %d\n", whpErr);
             printf("[!] Error: %X\n", GetLastError());
         }
         Sleep(1000);
