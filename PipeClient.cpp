@@ -114,7 +114,7 @@ void main()
         }
         else
         {
-            printf("[!] Error: %X", GetLastError());
+            printf("[!] Error: %X\n", GetLastError());
         }
         Sleep(1000);
         printf("Waiting to connect to client....\n");
