@@ -35,6 +35,7 @@ WHPHOOK_ERROR VM::Initialize(_Out_ PHANDLE Pipe)
     if (hPipe == INVALID_HANDLE_VALUE)
     {
         err = ErrorBadPipe;
+        *(HANDLE*)Pipe = INVALID_HANDLE_VALUE;
         return(err);
     }
 
