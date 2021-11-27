@@ -31,7 +31,7 @@ This is an example of what the log file will show:<br>
 
 ## Building
 * ⚠ In Launcher.c you may need to change some of the hardcoded QEMU paths as well as the path (G_Dll) the the hooking WinHvPlatform.dll
-* Run the build.bat script the to build all the binaries
+* ℹ️ Run the build.bat script the to build all the binaries
 
 ## Notes
 * Default (hardcoded) log file location is `C:\Windows\Temp\whp_hook_log.txt` This can totally be disabled by commenting out the `DEBUG` define.
