@@ -1,5 +1,5 @@
 # WHPHook
-Simple DLL that hooks all the functions in WinHvPlatform.dll for the purpose of logging and or gaining introspection a guest OS.
+Simple DLL that hooks all the functions in WinHvPlatform.dll for the purpose of logging and or gaining introspection at the hypervisor level.
 
 ## Overview and Usage
 
