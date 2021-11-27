@@ -609,7 +609,7 @@ BOOL WINAPI DllMain(HINSTANCE Dll, DWORD Reason, LPVOID Reserved)
     switch (Reason)
     {
     case DLL_PROCESS_ATTACH:
-        G_RealLibrary = LoadLibrary(L"WinHvPlatform_real.dll");
+        G_RealLibrary = LoadLibrary(L"C:\\Windows\\System32\\WinHvPlatform.dll");
         if (!G_RealLibrary)
         {
             MessageBox(0, L"Unable to load the real WinHvPlatform.dll", L"Error", MB_ICONERROR);
