@@ -29,9 +29,11 @@ This is an example of what the log file will show:<br>
   <img src="https://user-images.githubusercontent.com/16905064/142778064-7dbf98f7-4386-4ffe-b09a-a42143ec7b09.PNG"/>
 </p>
 
+## Building
+* ⚠ In Launcher.c you may need to change some of the hardcoded QEMU paths as well as the path (G_Dll) the the hooking WinHvPlatform.dll
+* Run the build.bat script the to build all the binaries
 
 ## Notes
-* A hardcoded path in WinHvPlatform.c pointing to the real WinHvPlatform.dll (G_RealLibrary) will need to be edited
 * Default (hardcoded) log file location is `C:\Windows\Temp\whp_hook_log.txt` This can totally be disabled by commenting out the `DEBUG` define.
 * It's important to note that this doesn't include/hook the WHP functions from the WinHvEmulation.dll, though an identical method could be used to hook its functions as well.
 * Currently just works with QEMU's usage of the WHP, but should work with VMware products and others that utilize the WHP.
