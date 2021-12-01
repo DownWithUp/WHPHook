@@ -4,7 +4,7 @@ Simple DLL that hooks all the functions in WinHvPlatform.dll for the purpose of 
 ## Overview and Usage
 
 The general idea of this DLL is replace the normal WinHvPlatform.dll [Windows Hypervisor Platform](https://docs.microsoft.com/en-us/virtualization/api/hypervisor-platform/hypervisor-platform) (WHP) with our custom one in order to log or manilupate data between VM exits. 
-One way to do this would be to repalce the DLL in `C:\Windows\System32` <br> Another method (and the preferred) is to inject it into a process by creating the process which uses WinHvPlatform.dll with the `CREATE_SUSPENDED` flag. Load the "fake" DLL via `CreateRemoteThread` on `LoadLibrary` and then resume the process. Because our DLL is loaded first, its exported functions will be the ones called by the process which will remain oblivious of the switch. The loaded "hooking" DLL then loads the real WinHvPlatform.dll so it can correctly act as a middleman.
+One way to do this would be to repalce the DLL in `C:\Windows\System32` <br> Another method (and the preferred) is to inject it into a process by creating the process which uses WinHvPlatform.dll with the `CREATE_SUSPENDED` flag. Load the "fake" DLL via `CreateRemoteThread` on `LoadLibrary` and then resume the process. Because our DLL is loaded first, its exported functions will be the ones called by the process which will remain oblivious of the switch. The loaded "hooking" DLL then loads the real WinHvPlatform.dll so it can correctly act as a middleman. This is what Launcher.c builds.
 
 On load the DLL creates a duplex pipe (`\\.\pipe\whp_hook`) and starts a server thread. A client can connect and then interact with the DLL essentially allowing it to debug the guest OS supported by hypervisor platform. 
 
